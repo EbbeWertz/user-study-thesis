@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacyverklaring - Masterthesis</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <script type="module" src="./scripts.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow max-w-3xl w-full mx-auto px-4 py-8">
+        
+        <div class="bg-white p-8 md:p-10 rounded-2xl border border-gray-200 shadow-xs max-w-none">
+            <h1 class="text-2xl font-bold text-gray-900 mb-1">Privacyverklaring en algemene voorwaarden</h1>
+            <p class="text-sm text-gray-400 mb-6">Informed Consent Overeenkomst</p>
+            
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                Hartelijk dank voor uw deelname aan dit onderzoek naar 360°-gebaseerde digitale verhaallijnen in het medisch onderwijs. Dit onderzoek situeert zich op drie verschillende digitale platformen:
+            </p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-8">
+                <li><strong>De onderzoeks-hub:</strong> De centrale website (gehost via GitHub Pages) die dient als startpunt, de instructies bevat en de media voor de kwalitatieve testen toont.</li>
+                <li><strong>De web-app:</strong> De specifiek ontwikkelde web-applicatie die het onderwerp vormt van een UX- en Usability Study.</li>
+                <li><strong>De enquêtes:</strong> De Microsoft Forms-formulieren waarin u uw feedback, associaties en antwoorden invult.</li>
+            </ul>
+
+            <hr class="border-gray-200 my-6">
+
+            <h3 class="text-lg font-bold text-gray-900 mb-3">1. Doel van het onderzoek en verwerking van gegevens</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                Dit onderzoek heeft een academisch doel en is opgesplitst in kwalitatieve media-evaluaties en een kwantitatieve UX/Usability-studie. Het doel is het evalueren van de impact van 360°-omgevingen op de manier waarop patiëntverhalen worden ervaren, alsmede het testen van de gebruiksvriendelijkheid van een specifiek digitaal platform (de web-app).
+            </p>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                De gegevens die worden verzameld via de kwalitatieve en kwantitatieve enquêtes (antwoorden, associaties en feedback) en de applicatie (interactiviteitslogs) worden uitsluitend verwerkt ten behoeve van de analyse binnen dit specifieke onderzoek en de uiteindelijke publicatie van de bijbehorende masterthesis. Alle data wordt in gepseudonimiseerde vorm gerapporteerd, waardoor resultaten nooit herleidbaar zijn tot individuele deelnemers. De exacte technische details omtrent de dataverzameling in de web-app vindt u hieronder.
+            </p>
+
+            <h3 class="text-lg font-bold text-gray-900 mb-3">2. Dataverzameling en Privacy</h3>
+            
+            <h4 class="text-md font-semibold text-gray-800 mb-2">2.1 Session Replays</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+                Uw sessie met de web-app wordt geregistreerd via PostHog in de vorm van "Session Replays". Dit is vergelijkbaar met een video-schermopname, maar enkel van de inhoud van de web-app. Dit is geen daadwerkelijke schermopname; delen van uw browser buiten de webpagina zelf vallen hier buiten en kunnen dus ook niet opgenomen worden. De session replays worden voornamelijk geraadpleegd om de tijdsduur van bepaalde taken te meten, moeilijkheden te identificeren en de effectieve uitvoering van de taken te controleren.
+            </p>
+
+            <h4 class="text-md font-semibold text-gray-800 mb-2">2.2 Interacties</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+                Tijdens uw sessie met de web-app, worden alle interacties met de app geregistreerd via PostHog, als onderdeel van de session replays. Dit omvat cursorbewegingen, muisklikken, het invullen van inputvelden (exclusief wachtwoordvelden), en het navigeren tussen verschillende pagina's in de web-app.
+            </p>
+
+            <h4 class="text-md font-semibold text-gray-800 mb-2">2.3 Logs</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+                Indien er onverwachte technische fouten optreden in de web-app, kan de output van de javascript-console van uw browser geraadpleegd worden via PostHog (enkel vanuit uw sessie met de web-app) om de bron van de fout te identificeren.
+            </p>
+
+            <h4 class="text-md font-semibold text-gray-800 mb-2">2.4 Anonimiteit / Pseudonimiteit</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">Alle gegevens worden geanonimiseerd of gepseudonimiseerd verwerkt:</p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-6">
+                <li>Om de enquêtes en de web-app-sessies per testgebruiker veilig met elkaar te kunnen associëren zonder uw identiteit te kennen, wordt er gebruikgemaakt van een unieke, willekeurige ID-code. De aparte onderdelen van het onderzoek zijn ten opzichte van elkaar dus gepseudonimiseerd.</li>
+                <li>De formulieren verzamelen geen directe persoonsgegevens (zoals uw naam of e-mailadres). De unieke ID-code wordt wel automatisch meegestuurd om de enquêtes te kunnen traceren tot hun overeenkomstige sessie binnen de web-app.</li>
+                <li>PostHog is zo geconfigureerd dat IP-adressen, geolocatie en trackingcookies niet worden verzameld.</li>
+                <li>Voor elke unieke ID-code wordt een specifiek, afzonderlijk en geïsoleerd testaccount gegenereerd in de web-app waarin deze code is vastgelegd. Uw acties hebben geen invloed op de data van andere gebruikers.</li>
+                <li>Na de afronding en beoordeling van dit onderzoek worden alle verzamelde ruwe gegevens, ID-koppelingen en sessielogs definitief verwijderd, waarmee de onderzoeksresultaten volledig en permanent worden geanonymiseerd.</li>
+            </ul>
+
+            <h3 class="text-lg font-bold text-gray-900 mb-3">3. Vrijwilligheid</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                U kunt op elk moment en zonder opgave van reden stoppen met de tests. Indien u voortijdig stopt, worden uw tot dan toe ingevulde gegevens niet meegenomen in het onderzoek.
+            </p>
+
+            <h3 class="text-lg font-bold text-gray-900 mb-3">4. Gebruik van media en auteursrecht</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                Alle media binnen deze centrale onderzoeks-hub en de gekoppelde web-app (waaronder de 360°-omgevingen, afbeeldingen, video's, documenten, audio en patiëntverhalen) zijn intellectueel eigendom van de externe projectpartner en/of diens respectievelijke makers. Deze media zijn specifiek beschikbaar gesteld voor dit academische onderzoek.
+            </p>
+            <p class="text-gray-600 mb-6 border-l-4 border-amber-500 bg-amber-50 p-4 rounded-r font-medium text-sm text-amber-900">
+                Het is strikt verboden om deze media te kopiëren, te downloaden, via screenshots of schermopnames op te slaan, te verspreiden of op eender welke manier openbaar te maken (bijvoorbeeld via sociale media). De media dienen uitsluitend binnen de onderzoeks-hub en de web-app bekeken te worden ten behoeve van deze tests.
+            </p>
+
+            <h3 class="text-lg font-bold text-gray-900 mb-3">5. Akkoord en toestemming</h3>
+            <p class="text-gray-600 leading-relaxed">
+                Door "Ik ga akkoord" aan te vinken bij de start van de tests (op de onderzoeks-hub, in de web-app en binnen de enquêtes), bevestigt u dat u deze voorwaarden heeft gelezen en verleent u expliciet en vrijwillig toestemming voor de verwerking van uw gegevens en de strikte naleving van de auteursrechten.
+            </p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 py-6">
+        <div class="max-w-6xl mx-auto px-4 text-center text-sm text-gray-500">
+            <p>&copy; 2026 Masterthesis Onderzoek - 360° Digitale Verhaallijnen.</p>
+        </div>
+    </footer>
+</body>
+</html>

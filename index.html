@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onderzoeks-Hub - Masterthesis</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <script type="module" src="./scripts.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <!-- HOOFDCONTAINER -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8">
+        <!-- Introductie -->
+        <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-xs mb-8">
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-4">Welkom bij het Onderzoek</h1>
+            <p class="text-gray-600 leading-relaxed max-w-3xl mb-4">
+                Hartelijk dank voor uw deelname aan dit masterthesis-onderzoek. Dit platform dient als de centrale hub. Vanaf hier zult u verschillende testen doorlopen om de effectiviteit en usability van onze applicaties te evalueren. 
+            </p>
+            <div class="flex items-center space-x-2 text-sm">
+                <i class="fa-solid fa-file-shield text-indigo-600"></i>
+                <span class="text-gray-500">Voor deelname dient u kennis te nemen van de</span>
+                <a href="consent.html" target="_blank" class="text-indigo-600 font-semibold hover:underline">Privacyverklaring & Voorwaarden</a>.
+            </div>
+        </div>
+
+        <!-- Test Secties Titel -->
+        <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center space-x-2">
+            <i class="fa-solid fa-flask text-gray-400"></i>
+            <span>Beschikbare Testonderdelen</span>
+        </h2>
+
+        <!-- DRIE TEST SECTIES -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Test 1 -->
+            <div class="flex flex-col">
+                <div class="flex items-center justify-between text-xs font-medium text-gray-500 mb-2 px-1">
+                    <span class="flex items-center"><i class="fa-regular fa-clock mr-1 text-gray-400"></i> ~10 min</span>
+                    <span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-semibold border border-emerald-200">Iedereen</span>
+                </div>
+                <a href="https://example.com/test1" target="_blank" class="flex-grow bg-white p-6 rounded-2xl border border-gray-200 shadow-xs hover:shadow-md hover:border-indigo-300 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-comments-text text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors mb-2">1. Kwalitatieve Evaluatie</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Bekijk de digitale verhaallijnen en deel uw initiële associaties en feedback via de enquête.</p>
+                    </div>
+                    <div class="mt-6 text-sm font-semibold text-indigo-600 flex items-center group-hover:translate-x-1 transition-transform">
+                        Start onderdeel <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Test 2 -->
+            <div class="flex flex-col">
+                <div class="flex items-center justify-between text-xs font-medium text-gray-500 mb-2 px-1">
+                    <span class="flex items-center"><i class="fa-regular fa-clock mr-1 text-gray-400"></i> ~15 min</span>
+                    <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full font-semibold border border-indigo-200">Medici & Studenten</span>
+                </div>
+                <a href="https://example.com/test2" target="_blank" class="flex-grow bg-white p-6 rounded-2xl border border-gray-200 shadow-xs hover:shadow-md hover:border-indigo-300 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-laptop-code text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors mb-2">2. UX & Usability Web-App</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Voer gerichte tasks uit binnen de speciaal ontwikkelde 360°-omgeving en test de interface.</p>
+                    </div>
+                    <div class="mt-6 text-sm font-semibold text-indigo-600 flex items-center group-hover:translate-x-1 transition-transform">
+                        Start onderdeel <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Test 3 -->
+            <div class="flex flex-col">
+                <div class="flex items-center justify-between text-xs font-medium text-gray-500 mb-2 px-1">
+                    <span class="flex items-center"><i class="fa-regular fa-clock mr-1 text-gray-400"></i> ~5 min</span>
+                    <span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-semibold border border-emerald-200">Iedereen</span>
+                </div>
+                <a href="https://example.com/test3" target="_blank" class="flex-grow bg-white p-6 rounded-2xl border border-gray-200 shadow-xs hover:shadow-md hover:border-indigo-300 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-square-poll-vertical text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors mb-2">3. Eindevaluatie & Vragenlijst</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Sluit het onderzoek af met een algemene kwantitatieve vragenlijst over uw totale ervaring.</p>
+                    </div>
+                    <div class="mt-6 text-sm font-semibold text-indigo-600 flex items-center group-hover:translate-x-1 transition-transform">
+                        Start onderdeel <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 mt-12 py-6">
+        <div class="max-w-6xl mx-auto px-4 text-center text-sm text-gray-500 flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
+            <p>&copy; 2026 Masterthesis Onderzoek - 360° Digitale Verhaallijnen.</p>
+            <a href="consent.html" target="_blank" class="text-gray-400 hover:text-indigo-600 font-medium transition-colors">Privacyverklaring & Voorwaarden</a>
+        </div>
+    </footer>
+</body>
+</html>

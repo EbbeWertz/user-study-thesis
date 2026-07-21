@@ -42,7 +42,7 @@ export function getID() {
  * Validates that the device is running in landscape mode and has a fine pointer 
  * (mouse, trackpad, or stylus), which allows hybrid laptops while filtering out pure touch phones/tablets.
  */
-export function isDesktopDevice() {
+export function isValidStudyDevice() {
   // 1. Must be in landscape orientation (width greater than height)
   const isLandscape = window.innerWidth > window.innerHeight;
   // 2. Must support a fine pointer (mouse, trackpad, or stylus).
@@ -51,8 +51,24 @@ export function isDesktopDevice() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Controleer apparaat. Indien ongeldig, toon blokkering.
-  if (!isDesktopDevice()) {
+  const isConsentPage = window.location.pathname.endsWith('consent.html');
+
+  if (isConsentPage) {
+    const header = document.createElement('header');
+    header.className = "bg-white border-b border-gray-200 sticky top-0 z-40 shadow-xs font-sans";
+    header.innerHTML = `
+      <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+          <a href="index.html" class="flex items-center space-x-2 text-indigo-600 font-bold text-lg hover:opacity-80">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <span>Masterproef onderzoek 360° media in de narratieve geneeskunde</span>
+          </a>
+      </div>
+    `;
+    document.body.prepend(header);
+    return;
+  }
+
+  if (!isValidStudyDevice()) {
     const blocker = document.createElement('div');
     blocker.className = "fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-6 text-center";
     blocker.innerHTML = `
@@ -64,10 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
     document.body.prepend(blocker);
-    return; // Stop verdere uitvoering
+    return; 
   }
 
-  // 2. Injecteer de Topbar bovenaan de body
+  // 2. Injecteer de volledige Topbar inclusief ID
   const participantId = getID();
   const header = document.createElement('header');
   header.className = "bg-white border-b border-gray-200 sticky top-0 z-40 shadow-xs font-sans";

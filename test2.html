@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 2: UX & Usability Web-App - Masterthesis</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <!-- Het algemene script dat de Topbar en ID-validatie regelt -->
+    <script type="module" src="./scripts.js"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <!-- HOOFDCONTAINER -->
+    <main class="flex-grow max-w-5xl w-full mx-auto px-4 py-8">
+
+        <!-- Terugknop & Titel -->
+        <div class="mb-6">
+            <a href="index.html"
+                class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:underline mb-4">
+                <i class="fa-solid fa-arrow-left mr-1.5 text-xs"></i> Terug naar de centrale hub
+            </a>
+            <div class="flex items-center justify-between border-b border-gray-200 pb-4">
+                <h1 class="text-3xl font-extrabold text-gray-900">Test 2: UX & Usability Web-App</h1>
+                <span
+                    class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-semibold border border-green-200">
+                    <i class="fa-regular fa-clock mr-1"></i> ~15 min
+                </span>
+            </div>
+        </div>
+
+        <!-- INTRODUCTIE & TOEGANG -->
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs mb-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-3">Instructies & Omgevingsinitialisatie</h2>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                In deze test gaat u de bruikbaarheid en gebruikerservaring van de ontwikkelde web-app evalueren door een
+                reeks gerichte taken uit te voeren.
+                <br><br>
+                <strong>Hoe start u?</strong> Klik op de onderstaande link om naar de web-app te gaan. Zodra u daar
+                akkoord gaat met de <em>Privacyverklaring & Voorwaarden</em>, verschijnt er een knop met de tekst
+                <strong>"Initialiseer testomgeving"</strong>. Als u hierop klikt, wordt er automatisch een testaccount
+                voor u klaargemaakt met vooraf ingevulde media die u nodig zult hebben voor de taken.
+            </p>
+
+            <div
+                class="p-4 bg-indigo-50 rounded-xl border border-indigo-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                    <span class="text-xs font-bold text-indigo-500 uppercase tracking-wider block">Stap 1: Open de
+                        applicatie</span>
+                    <span class="text-sm text-gray-600">De web-app wordt automatisch gekoppeld aan uw unieke deelnemers
+                        ID.</span>
+                </div>
+                <a id="app-link" href="#" target="_blank"
+                    class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2.5 rounded-xl inline-flex items-center justify-center transition-colors shadow-xs">
+                    Naar de Web-App <i class="fa-solid fa-external-link ml-2 text-xs"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- BENODIGDE MEDIA (DOWNLOADS) -->
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs mb-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-2">Benodigde Media</h2>
+            <p class="text-xs text-amber-600 font-medium mb-4 flex items-center">
+                <i class="fa-solid fa-circle-exclamation mr-1.5"></i>
+                Uitzondering auteursrecht: Deze bestanden zijn abstract/kunstmatig en vallen NIET onder het
+                downloadverbod uit de privacyverklaring. U mag deze vrij downloaden voor de test.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="./assets/InformatieveFoto.png" download
+                    class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-xl transition-colors group">
+                    <div
+                        class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mr-3 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-image"></i>
+                    </div>
+                    <div>
+                        <span class="block text-sm font-bold text-gray-800">1. Informatieve Foto</span>
+                        <span class="block text-xs text-gray-500">Losse afbeelding (.jpg) voor Taak B1</span>
+                    </div>
+                </a>
+                <a href="./assets/360_ruimtes.zip" download
+                    class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-xl transition-colors group">
+                    <div
+                        class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mr-3 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-file-zipper"></i>
+                    </div>
+                    <div>
+                        <span class="block text-sm font-bold text-gray-800">2. 360° Ruimtes</span>
+                        <span class="block text-xs text-gray-500">Gecomprimeerd bestand (.zip) voor Taak B2</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- TAKENLIJST -->
+        <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+            <i class="fa-solid fa-list-check text-gray-400 mr-2"></i> Uit te voeren taken
+        </h2>
+
+        <div class="space-y-6">
+
+            <!-- DEEL 1 -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
+                <div class="bg-gray-50 border-b border-gray-200 px-6 py-4">
+                    <h3 class="text-lg font-bold text-gray-900">Deel 1: Algemeen Gebruik & Media</h3>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div>
+                        <h4 class="font-bold text-gray-950 flex items-center text-sm mb-2">
+                            <span
+                                class="bg-indigo-100 text-indigo-700 w-5 h-5 rounded-full flex items-center justify-center text-xs mr-2 font-mono">A</span>
+                            Systeemverkenning & Zoeken
+                        </h4>
+                        <ol class="list-decimal list-inside text-sm text-gray-600 pl-2 space-y-1">
+                            <li>Log in op de applicatie als <strong>creator</strong>.</li>
+                            <li>Navigeer naar de tab <strong>'Media Storage'</strong>.</li>
+                            <li><em>Scenario:</em> Je hebt ooit 360° afbeeldingen gemaakt van een hal, maar bent
+                                vergeten óf en in welke map je ze hebt geüpload. Omdat er veel mappen zijn <it>(in een
+                                    realistisch scenario)</it>, is handmatig zoeken te tijdrovend. Gebruik de
+                                <strong>zoekfuncties</strong> binnen de app om te achterhalen of er een 360° afbeelding
+                                van een "hal" bestaat.</li>
+                        </ol>
+                    </div>
+
+                    <div class="border-t border-gray-100 pt-4">
+                        <h4 class="font-bold text-gray-950 flex items-center text-sm mb-2">
+                            <span
+                                class="bg-indigo-100 text-indigo-700 w-5 h-5 rounded-full flex items-center justify-center text-xs mr-2 font-mono">B</span>
+                            Media Uploaden
+                        </h4>
+                        <ol class="list-decimal list-inside text-sm text-gray-600 pl-2 space-y-2">
+                            <li><strong>Enkelvoudige upload:</strong> Download bovenaan deze pagina de <em>'Informatieve
+                                    Foto'</em>. Upload deze foto vervolgens in de applicatie om hem later te gebruiken
+                                voor een patiëntenverhaal.</li>
+                            <li><strong>Bulk upload & Mappenstructuur:</strong> Download de zip-map met de <em>'360°
+                                    Ruimtes'</em> en pak deze lokaal op uw computer uit. Maak binnen de web-app een
+                                nieuwe map aan met de naam <code
+                                    class="bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-xs font-mono">test</code>
+                                en upload alle 10 de uitgepakte 360°-foto's in één keer in deze specifieke map. Merk op
+                                dat deze foto's herkend worden als 360°-media.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEEL 2 -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
+                <div class="bg-gray-50 border-b border-gray-200 px-6 py-4">
+                    <h3 class="text-lg font-bold text-gray-900">Deel 2: Omgeving & Content Creatie</h3>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div>
+                        <h4 class="font-bold text-gray-950 flex items-center text-sm mb-2">
+                            <span
+                                class="bg-indigo-100 text-indigo-700 w-5 h-5 rounded-full flex items-center justify-center text-xs mr-2 font-mono">C</span>
+                            Omgevingen Maken & Koppelen
+                        </h4>
+                        <ol class="list-decimal list-inside text-sm text-gray-600 pl-2 space-y-2">
+                            <li>Navigeer naar de tab <strong>Environments</strong> en maak een gloednieuwe omgeving aan
+                                genaamd <code
+                                    class="bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-xs font-mono">testomgeving</code>.
+                                Stel de 'living' (te vinden in de map "Appartement") in als startscene en open de
+                                <strong>Scene Editor</strong>.</li>
+                            <li>Voeg vanuit diezelfde map the 'keuken' toe als tweede scene. Zorg dat er in de living
+                                een navigatielink naar de keuken ligt, en in de keuken een link terug naar de living.
+                                Noem deze links respectievelijk <code
+                                    class="bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-xs font-mono">keuken</code>
+                                en <code
+                                    class="bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-xs font-mono">living</code>.
+                            </li>
+                            <li>Plaats tot slot een <strong>media marker</strong> op het TV-scherm in de living en
+                                koppel hieraan de foto die u in taak B1 hebt geüpload. Noem deze marker <code
+                                    class="bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-xs font-mono">foto</code>.
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="border-t border-gray-100 pt-4">
+                        <h4 class="font-bold text-gray-950 flex items-center text-sm mb-2">
+                            <span
+                                class="bg-indigo-100 text-indigo-700 w-5 h-5 rounded-full flex items-center justify-center text-xs mr-2 font-mono">D</span>
+                            Previews & Validatie
+                        </h4>
+                        <ol class="list-decimal list-inside text-sm text-gray-600 pl-2 space-y-2">
+                            <li>Navigeer terug naar het hoofdoverzicht van de Environments en open <strong>Axel's
+                                    verhaal</strong>. <em>Scenario:</em> Een collega heeft deze omgeving gebouwd en u
+                                wilt controleren wat studenten te zien krijgen. Navigeer naar de <strong>preview
+                                    tab</strong>. Wissel tussen de twee beschikbare varianten (<em>"enkel de
+                                    scenes"</em> versus <em>"met medische elementen"</em>) en verken de verschillen.
+                            </li>
+                            <li>Bekijk enkele markers in de scene editor en verklaar waarom bepaalde markers wel
+                                zichtbaar zijn in de ene, maar ontbreken in de "enkel de scenes" preview.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEEL 3 -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
+                <div class="bg-gray-50 border-b border-gray-200 px-6 py-4">
+                    <h3 class="text-lg font-bold text-gray-900">Deel 3: Publicaties & Varianten</h3>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div>
+                        <h4 class="font-bold text-gray-950 flex items-center text-sm mb-2">
+                            <span
+                                class="bg-indigo-100 text-indigo-700 w-5 h-5 rounded-full flex items-center justify-center text-xs mr-2 font-mono">E</span>
+                            Gerichte publicatie (Studentenscenario)
+                        </h4>
+                        <ol class="list-decimal list-inside text-sm text-gray-600 pl-2 space-y-2">
+                            <li>U heeft Axel's verhaal goedgekeurd, maar wilt voor een specifieke studentengroep een
+                                aangepaste versie maken waarin initieel enkel de 360° vlog-video's in de traphal
+                                (bereikbaar via de link "naar buiten" in de hal scene) te zien zijn. Maak in het
+                                environment-overzicht een nieuwe variant aan genaamd <code
+                                    class="bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-xs font-mono">vlog-variant</code>.
+                            </li>
+                            <li>Maak <strong>5 hints</strong> aan in de keuken die <em>uitsluitend</em> in deze nieuwe
+                                vlog-variant zichtbaar mogen zijn (de exacte tekst of positie mag u zelf kiezen).</li>
+                            <li>Zorg dat de navigatielinks richting de traphal actief zijn. Zorg er ook voor dat de
+                                informatienotitie in de hal en de twee specifieke vlog-video's in de traphal correct
+                                zichtbaar zijn binnen deze variant.</li>
+                            <li><strong>Schrijffout corrigeren:</strong> Controleer via de preview de werking en inhoud.
+                                U merkt een storende spelfout op in de informatienotitie in de hal. Er staat momenteel:
+                                <em>"Een patiënt zijn is <strong>nier</strong> alleen een medisch probleem"</em>.
+                                Corrigeer deze tekst in de editor naar <em>"<strong>niet</strong> alleen"</em>.</li>
+                            <li>Ga naar de <strong>Publicatie tab</strong>, publiceer de zojuist gemaakte vlog-variant
+                                onder de naam <code
+                                    class="bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-xs font-mono">vlog groep</code>
+                                en kopieer de gegenereerde <strong>Access Key</strong> (toegangscode).</li>
+                            <li><em>Studentenrol:</em> Simuleer nu dat u de student bent die de code van de docent heeft
+                                ontvangen. Navigeer terug naar de startpagina van de web-app, kies voor de optie om door
+                                te gaan als <strong>student</strong>, en bekijk de omgeving via de gekopiëerde accces
+                                key.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div
+        class="mt-12 bg-indigo-900 text-white p-8 rounded-2xl shadow-md border border-indigo-950 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="max-w-xl">
+            <h2 class="text-2xl font-bold mb-2 flex items-center">
+                <i class="fa-solid fa-square-check text-green-400 mr-3 text-3xl"></i>
+                Klaar met alle taken van Test 2?
+            </h2>
+            <p class="text-indigo-200 text-sm leading-relaxed">
+                Hartelijk dank voor uw inzet! Om dit onderdeel officieel af te ronden en uw ervaringen te registreren,
+                vragen we u vriendelijk om de bijbehorende enquête in te vullen. Dit duurt slechts enkele minuten.
+            </p>
+        </div>
+        <a id="form-link" href="#" target="_blank"
+            class="w-full md:w-auto bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3.5 rounded-xl inline-flex items-center justify-center transition-colors shadow-xs shrink-0 group">
+            Open de Enquête <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+    </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 mt-12 py-6">
+        <div
+            class="max-w-5xl mx-auto px-4 text-center text-sm text-gray-500 flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
+            <p>&copy; 2026 Masterthesis Onderzoek Ebbe Wertz - 360° Digitale Verhaallijnen.</p>
+            <a href="consent.html" target="_blank"
+                class="text-gray-400 hover:text-indigo-600 font-medium transition-colors">Privacyverklaring &
+                Voorwaarden</a>
+        </div>
+    </footer>
+
+    <!-- DYNAMISCHE LINK GENERATIE GEBASEERD OP BESTAANDE SCRIPTS.JS -->
+    <script type="module">
+        import { getID, getForm2Url } from './scripts.js';
+
+        document.addEventListener("DOMContentLoaded", () => {
+            try {
+                // Verkrijg het actieve ID dat reeds gegenereerd/opgeslagen is via scripts.js
+                const participantId = getID();
+
+                // Koppel het ID dynamisch aan de applicatielink
+                const appLink = document.getElementById("app-link");
+                if (appLink && participantId) {
+                    appLink.href = `https://ebbewertzserver.duckdns.org?testid=${participantId}`;
+                }
+                const formLink = document.getElementById("form-link");
+                if (formLink && participantId && typeof getForm2Url === 'function') {
+                    formLink.href = getForm2Url(participantId);
+                }
+            } catch (error) {
+                console.error("Fout bij het ophalen van het Deelnemer ID uit scripts.js:", error);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,4 +1,6 @@
 const STORAGE_KEY = 'study_participant_id';
+const FORM2_BASE_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=m1hzOUCetU6ADrC2OD0WIbPNL_bNO0VEiDypVKMSBnJUMlQzWFZOVlZITVpENzhPSTg1OUxGNUE5Si4u&r3c52b39b4f2e48fa9f3b80dc7f1ce9ea="
+
 
 /**
  * Generates a short, random, URL-friendly ID.
@@ -101,3 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
   document.body.prepend(header);
 });
+
+
+export function getForm2Url(id){
+    return `${FORM2_BASE_URL}${id}`;
+}

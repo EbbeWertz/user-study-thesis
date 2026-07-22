@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="./scripts.js"></script>
+</head>
+<body>
+    <script type="module">
+        import { presigned_env_urls, presigned_media_urls, presigned_vlog_urls, getCorrectPresignedUrl } from './scripts.js';
+
+        for (const [key, localurl] of Object.entries(presigned_env_urls)){
+            console.log(`${key}: ${getCorrectPresignedUrl(localurl)}`);
+        }
+        console.log("--");
+        for (const [key, localurl] of Object.entries(presigned_media_urls)){
+            console.log(`${key}: ${getCorrectPresignedUrl(localurl)}`);
+        }
+        console.log("--");
+        for (const [key, localurl] of Object.entries(presigned_vlog_urls)){
+            console.log(`${key}: ${getCorrectPresignedUrl(localurl)}`);
+        }
+        console.log("--");
+    </script>
+</body>
+</html>

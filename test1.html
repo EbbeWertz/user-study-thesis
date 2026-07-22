@@ -1,27 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Test 1: Kwalitatieve Evaluatie - Masterthesis</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Photo Sphere Viewer Core Styles + Core Script -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5/index.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5/index.min.js"></script>
+    
+    <!-- Photo Sphere Viewer Adapters -->
+    <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/cubemap-adapter@5/index.min.js"></script>
+    
+    <!-- Vereiste Video Plugin + de bijbehorende Cubemap Video Adapter -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/video-plugin@5/index.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/video-plugin@5/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/cubemap-video-adapter@5/index.min.js"></script>
+
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <!-- Het algemene script dat de Topbar en ID-validatie regelt -->
     <script type="module" src="./scripts.js"></script>
 </head>
-<body>
-    <script type="module">
-        import { presigned_env_urls, presigned_media_urls, presigned_vlog_urls, getCorrectPresignedUrl } from './scripts.js';
 
-        for (const [key, localurl] of Object.entries(presigned_env_urls)){
-            console.log(`${key}: ${getCorrectPresignedUrl(localurl)}`);
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <!-- HOOFDCONTAINER -->
+    <main class="flex-grow max-w-5xl w-full mx-auto px-4 py-8">
+        
+        <!-- Terugknop & Titel -->
+        <div class="mb-6">
+            <a href="index.html" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:underline mb-4">
+                <i class="fa-solid fa-arrow-left mr-1.5 text-xs"></i> Terug naar de centrale hub
+            </a>
+            <div class="flex items-center justify-between border-b border-gray-200 pb-4">
+                <h1 class="text-3xl font-extrabold text-gray-900">Test 1: Kwalitatieve Evaluatie</h1>
+                <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold border border-indigo-200">
+                    <i class="fa-regular fa-clock mr-1"></i> ~10 min
+                </span>
+            </div>
+        </div>
+
+        <!-- INTRODUCTIE VAN AXEL -->
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs mb-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                <i class="fa-solid fa-user text-indigo-600 mr-2.5"></i> Introductie: Het verhaal van Axel
+            </h2>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                In dit onderdeel maakt u kennis met <strong>Axel</strong>, een patiënt die gediagnosticeerd is met het <strong>Brugada syndroom</strong>. Dit is een genetische hartaandoening die een verhoogd risico geeft op ernstige hartritmestoornissen en plotselinge hartdood. 
+            </p>
+            <p class="text-gray-600 text-sm leading-relaxed">
+                Door de impact van deze diagnose en de bijbehorende medische implantaten (zoals een ICD/defibrillator) is Axel's dagelijks leven ingrijpend veranderd. Hij balanceert continu tussen zijn rol als patiënt en zijn bijdrage aan de academische wereld binnen dit medische domein.
+            </p>
+        </div>
+
+        <!-- PRIVACY & AUTEURSRECHT BLOCKER -->
+        <div id="consent-blocker" class="bg-amber-50 border border-amber-200 p-8 rounded-2xl text-center my-8 shadow-xs">
+            <i class="fa-solid fa-lock text-amber-500 text-4xl mb-4"></i>
+            <h3 class="text-xl font-bold text-amber-950 mb-2">Gevoelige Medische Content Grendel</h3>
+            <p class="text-amber-800 text-sm max-w-2xl mx-auto mb-6">
+                De media en 360°-omgevingen in deze test bevatten persoonsgegevens en auteursrechtelijk beschermd materiaal. Om deze te mogen inzien en de test te starten, dient u expliciet akkoord te gaan met de voorwaarden.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="consent.html" target="_blank" class="text-indigo-600 font-semibold hover:underline text-sm flex items-center">
+                    <i class="fa-solid fa-file-shield mr-1.5"></i> Bekijk Privacyverklaring & Voorwaarden
+                </a>
+                <button id="btn-accept-content" class="bg-amber-600 hover:bg-amber-700 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-xs">
+                    Ik ga akkoord en ontgrendel de test
+                </button>
+            </div>
+        </div>
+
+        <!-- CONTENT AREA (INITIEEL VERBORGEN TOT ACCEPTEREN) -->
+        <div id="test-content" class="hidden space-y-8">
+
+            <!-- TAKENLIJST -->
+            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs">
+                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <i class="fa-solid fa-list-check text-gray-400 mr-2"></i> Uit te voeren opdrachten
+                </h2>
+                <div class="p-4 bg-gray-50 rounded-xl border border-gray-150">
+                    <ol class="list-decimal list-inside text-sm text-gray-700 space-y-3">
+                        <li><strong>Verken het verhaal van Axel</strong> aan de hand van de gegeven media. Deze media bestaat uit de <u>algemene media</u> (documenten/video's) EN de <u>360° vlogs</u> waarin hij zijn situatie toelicht.</li>
+                        <li><strong>Verken de 360° foto's (scenes)</strong> in de daarvoor bestemde sectie om een visueel beeld te krijgen van zijn fysieke leefomgeving.</li>
+                        <li><strong>Denk na over het positioneren van de media:</strong> Waar zou u de specifieke documenten, vlogs of korte notities in de 360° ruimtes plaatsen om logische verbanden te leggen tussen de fysieke ruimte en de details van zijn verhaal?</li>
+                        <li><strong>Beargumenteer mentaal</strong> waarom u specifieke media op bepaalde locaties heeft geplaatst ter voorbereiding op de enquête.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- SECTIE 1: ALGEMENE MEDIA & DOCUMENTEN -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
+                <div class="bg-gray-50 border-b border-gray-200 px-6 py-4">
+                    <h3 class="text-lg font-bold text-gray-900">1. Algemene Media & Documenten</h3>
+                </div>
+                <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Beperkingen (Foto) -->
+                    <div class="border border-gray-200 rounded-xl p-4 flex flex-col justify-between bg-white">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-blue-50 text-blue-700 text-xs font-bold px-2 py-0.5 rounded border border-blue-200">Lijst van Beperkingen</span>
+                                <button onclick="openModal('image', document.getElementById('media-beperkingen').src)" class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> Groot bekijken</button>
+                            </div>
+                            <p class="text-gray-500 text-xs mt-1">Lijst met dagelijkse restricties voor patiënten met het Brugada syndroom.</p>
+                        </div>
+                        <img id="media-beperkingen" src="" alt="Lijst van beperkingen" class="w-full h-48 object-cover rounded-lg border border-gray-200 cursor-pointer" onclick="openModal('image', this.src)">
+                    </div>
+
+                    <!-- Guidelines Paper (PDF) -->
+                    <div class="border border-gray-200 rounded-xl p-4 flex flex-col justify-between bg-white">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-red-50 text-red-700 text-xs font-bold px-2 py-0.5 rounded border border-red-200">2022 ESC Guidelines</span>
+                                <button onclick="openModal('pdf', document.getElementById('media-paper').src)" class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> Groot bekijken</button>
+                            </div>
+                            <p class="text-gray-500 text-xs mt-1">Richtlijnen voor ventriculaire aritmieën (Axel als co-auteur).</p>
+                        </div>
+                        <iframe id="media-paper" src="" class="w-full h-48 rounded-lg border border-gray-200"></iframe>
+                    </div>
+
+                    <!-- Infoboekje Video (Normal Video) -->
+                    <div class="border border-gray-200 rounded-xl p-4 flex flex-col justify-between bg-white">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-purple-50 text-purple-700 text-xs font-bold px-2 py-0.5 rounded border border-purple-200">Medisch Infoboekje</span>
+                                <button onclick="openModal('video', document.getElementById('media-infoboekje').src)" class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> Groot bekijken</button>
+                            </div>
+                            <p class="text-gray-500 text-xs mt-1">Video waarin Axel door het verklarende infoboekje bladert.</p>
+                        </div>
+                        <video id="media-infoboekje" controls class="w-full h-48 rounded-lg bg-black"></video>
+                    </div>
+
+                    <!-- ECG Video (Normal Video) -->
+                    <div class="border border-gray-200 rounded-xl p-4 flex flex-col justify-between bg-white">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-purple-50 text-purple-700 text-xs font-bold px-2 py-0.5 rounded border border-purple-200">ECG-Opname & Defibrillator</span>
+                                <button onclick="openModal('video', document.getElementById('media-ecg').src)" class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> Groot bekijken</button>
+                            </div>
+                            <p class="text-gray-500 text-xs mt-1">Axel overloopt een ECG-registratie met fibrillatie en ICD-activering.</p>
+                        </div>
+                        <video id="media-ecg" controls class="w-full h-48 rounded-lg bg-black"></video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTIE 2: 360° VLOGS (NARRATIEF) -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
+                <div class="bg-gray-50 border-b border-gray-200 px-6 py-4">
+                    <h3 class="text-lg font-bold text-gray-900">2. 360° Vlogs van Axel</h3>
+                </div>
+                <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <span class="bg-amber-50 text-amber-700 text-xs font-bold px-2 py-0.5 rounded border border-amber-200 mb-1 inline-block">Vlog 1: Mobiliteit & Boodschappen</span>
+                        <p class="text-gray-500 text-xs mb-3">Axel legt uit welke impact de aandoening heeft op zijn mobiliteit.</p>
+                        <div id="vlog-viewer-mobiliteit" class="w-full h-64 bg-gray-900 rounded-xl overflow-hidden shadow-inner"></div>
+                    </div>
+                    <div>
+                        <span class="bg-amber-50 text-amber-700 text-xs font-bold px-2 py-0.5 rounded border border-amber-200 mb-1 inline-block">Vlog 2: Woonplaats & Strategische Keuze</span>
+                        <p class="text-gray-500 text-xs mb-3">Axel vertelt waarom zijn specifieke woonlocatie strategisch is gekozen.</p>
+                        <div id="vlog-viewer-woonplaats" class="w-full h-64 bg-gray-900 rounded-xl overflow-hidden shadow-inner"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTIE 3: 360° OMGEVINGEN (SCENES) -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
+                <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    <h3 class="text-lg font-bold text-gray-900">3. Fysieke Ruimtes (360° Scenes)</h3>
+                    <div class="flex flex-wrap gap-1.5" id="scene-selector-container">
+                        <!-- Dynamische knoppen -->
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div id="scene-viewer-container" class="w-full h-96 bg-gray-900 rounded-xl overflow-hidden shadow-inner relative flex items-center justify-center">
+                        <span class="text-gray-400 text-sm font-medium">Selecteer een scene hierboven om deze te verkennen</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENQUÊTE CALL TO ACTION -->
+            <div class="bg-indigo-900 text-white p-8 rounded-2xl shadow-md border border-indigo-950 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-2xl font-bold mb-2 flex items-center">
+                        <i class="fa-solid fa-square-check text-green-400 mr-3 text-3xl"></i>
+                        Klaar met de kwalitatieve evaluatie?
+                    </h2>
+                    <p class="text-indigo-200 text-sm leading-relaxed">
+                        U heeft nu alle media en fysieke ruimtes verkend. Klik op de knop om uw conceptuele ideeën en argumenten achter te laten in het officiële feedbackformulier.
+                    </p>
+                </div>
+                <a id="form-link" href="#" target="_blank" class="w-full md:w-auto bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3.5 rounded-xl inline-flex items-center justify-center transition-colors shadow-xs shrink-0 group">
+                    Naar het evaluatieformulier <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 mt-12 py-6">
+        <div class="max-w-5xl mx-auto px-4 text-center text-sm text-gray-500 flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
+            <p>&copy; 2026 Masterthesis Onderzoek Ebbe Wertz - 360° Digitale Verhaallijnen.</p>
+            <a href="consent.html" target="_blank" class="text-gray-400 hover:text-indigo-600 font-medium transition-colors">Privacyverklaring & Voorwaarden</a>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX / MEDIA MODAL SYSTEM -->
+    <div id="media-modal" class="fixed inset-0 z-50 hidden bg-black/80 flex items-center justify-center p-4 backdrop-blur-xs">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-white hover:text-gray-300 text-3xl z-50 cursor-pointer">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div id="modal-content" class="w-full max-w-4xl h-[85vh] flex items-center justify-center">
+            <!-- Dynamische content injectie -->
+        </div>
+    </div>
+
+    <!-- SCRIPTS EN LOGICA -->
+    <script>
+        // Globale functies voor het modal venster (zodat inline HTML buttons erbij kunnen)
+        window.openModal = function(type, src) {
+            const modal = document.getElementById('media-modal');
+            const container = document.getElementById('modal-content');
+            container.innerHTML = '';
+            
+            if (type === 'image') {
+                container.innerHTML = `<img src="${src}" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">`;
+            } else if (type === 'pdf') {
+                container.innerHTML = `<iframe src="${src}" class="w-full h-full rounded-lg bg-white" frameborder="0"></iframe>`;
+            } else if (type === 'video') {
+                container.innerHTML = `<video src="${src}" controls autoplay class="max-w-full max-h-full rounded-lg bg-black"></video>`;
+            }
+            modal.classList.remove('hidden');
+        };
+
+        window.closeModal = function() {
+            const modal = document.getElementById('media-modal');
+            const container = document.getElementById('modal-content');
+            container.innerHTML = ''; // Stopt spelende video's
+            modal.classList.add('hidden');
+        };
+    </script>
+
+    <script type="module">
+        import { 
+            getID, 
+            getForm1Url, 
+            getCorrectPresignedUrl,
+            presigned_env_urls,
+            presigned_media_urls,
+            presigned_vlog_urls
+        } from './scripts.js';
+
+        const STORAGE_CONSENT_KEY = 'study_test1_content_consent';
+        let currentPhotoViewer = null;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const blocker = document.getElementById('consent-blocker');
+            const contentArea = document.getElementById('test-content');
+            const acceptBtn = document.getElementById('btn-accept-content');
+
+            if (localStorage.getItem(STORAGE_CONSENT_KEY) === 'true') {
+                blocker.classList.add('hidden');
+                contentArea.classList.remove('hidden');
+                initializeTestContent();
+            } else {
+                acceptBtn.addEventListener('click', () => {
+                    localStorage.setItem(STORAGE_CONSENT_KEY, 'true');
+                    blocker.classList.add('hidden');
+                    contentArea.classList.remove('hidden');
+                    initializeTestContent();
+                });
+            }
+        });
+
+        function initializeTestContent() {
+            const participantId = getID();
+
+            // 1. Enquête link
+            const formLink = document.getElementById("form-link");
+            if (formLink && participantId && typeof getForm1Url === 'function') {
+                formLink.href = getForm1Url(participantId);
+            }
+
+            // 2. Laad statische media elementen via de presigned mapper
+            document.getElementById('media-beperkingen').src = getCorrectPresignedUrl(presigned_media_urls.beperkingen);
+            document.getElementById('media-paper').src = getCorrectPresignedUrl(presigned_media_urls.paper);
+            document.getElementById('media-infoboekje').src = getCorrectPresignedUrl(presigned_media_urls.infoboekje_video);
+            document.getElementById('media-ecg').src = getCorrectPresignedUrl(presigned_media_urls.ecg_video);
+
+            // 3. Initialiseer 360° Vlogs via de CubemapVideoAdapter
+            init360VideoViewer('vlog-viewer-mobiliteit', getCorrectPresignedUrl(presigned_vlog_urls.mobiliteit));
+            init360VideoViewer('vlog-viewer-woonplaats', getCorrectPresignedUrl(presigned_vlog_urls.woonplaats));
+
+            // 4. Initialiseer 360° Foto Omgevingen via CubemapAdapter ('stripe' layout)
+            const selectorContainer = document.getElementById('scene-selector-container');
+            selectorContainer.innerHTML = '';
+
+            Object.keys(presigned_env_urls).forEach((key, index) => {
+                const btn = document.createElement('button');
+                btn.className = "bg-white hover:bg-gray-100 text-gray-800 text-xs font-semibold px-3 py-1.5 rounded-lg border border-gray-300 transition-colors capitalize cursor-pointer";
+                btn.textContent = key;
+                btn.addEventListener('click', () => {
+                    Array.from(selectorContainer.children).forEach(b => {
+                        b.classList.replace('bg-indigo-600', 'bg-white');
+                        b.classList.replace('text-white', 'text-gray-800');
+                    });
+                    btn.classList.replace('bg-white', 'bg-indigo-600');
+                    btn.classList.replace('text-gray-800', 'text-white');
+
+                    load360Photo(getCorrectPresignedUrl(presigned_env_urls[key]));
+                });
+                selectorContainer.appendChild(btn);
+
+                if (index === 0) btn.click();
+            });
         }
-        console.log("--");
-        for (const [key, localurl] of Object.entries(presigned_media_urls)){
-            console.log(`${key}: ${getCorrectPresignedUrl(localurl)}`);
+
+        // 360° Video via de officiële CubemapVideoAdapter (Layout is standaard correct)
+        function init360VideoViewer(containerId, videoUrl) {
+            new PhotoSphereViewer.Viewer({
+                container: document.getElementById(containerId),
+                adapter: [PhotoSphereViewer.CubemapVideoAdapter, {
+                    autoplay: false,
+                    muted: false
+                }],
+                panorama: {
+                    source: videoUrl
+                },
+                navbar: 'video caption settings fullscreen',
+                plugins: [PhotoSphereViewer.VideoPlugin]
+            });
         }
-        console.log("--");
-        for (const [key, localurl] of Object.entries(presigned_vlog_urls)){
-            console.log(`${key}: ${getCorrectPresignedUrl(localurl)}`);
+
+        // 360° Foto via de CubemapAdapter met specifieke 'stripe' array volgorde
+        function load360Photo(photoUrl) {
+            const container = document.getElementById('scene-viewer-container');
+            
+            if (currentPhotoViewer) {
+                currentPhotoViewer.destroy();
+            }
+
+            currentPhotoViewer = new PhotoSphereViewer.Viewer({
+                container: container,
+                adapter: [PhotoSphereViewer.CubemapAdapter],
+                panorama: {
+                    type: 'stripe',
+                    path: photoUrl,
+                    order: ['left', 'right', 'top', 'bottom', 'back', 'front']
+                },
+                navbar: ['zoom', 'move', 'fullscreen']
+            });
         }
-        console.log("--");
     </script>
 </body>
+
 </html>

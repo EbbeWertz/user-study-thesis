@@ -7,15 +7,15 @@
     <title>Test 1: Kwalitatieve Evaluatie - Masterthesis</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Photo Sphere Viewer Core Styles + Core Script -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5/index.min.css">
     <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5/index.min.js"></script>
-    
+
     <!-- Photo Sphere Viewer Adapters -->
     <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/cubemap-adapter@5/index.min.js"></script>
-    
+
     <!-- Vereiste Video Plugin + de bijbehorende Cubemap Video Adapter -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/video-plugin@5/index.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/video-plugin@5/index.min.js"></script>
@@ -30,15 +30,17 @@
 
     <!-- HOOFDCONTAINER -->
     <main class="flex-grow max-w-5xl w-full mx-auto px-4 py-8">
-        
+
         <!-- Terugknop & Titel -->
         <div class="mb-6">
-            <a href="index.html" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:underline mb-4">
+            <a href="index.html"
+                class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:underline mb-4">
                 <i class="fa-solid fa-arrow-left mr-1.5 text-xs"></i> Terug naar de centrale hub
             </a>
             <div class="flex items-center justify-between border-b border-gray-200 pb-4">
                 <h1 class="text-3xl font-extrabold text-gray-900">Test 1: Kwalitatieve Evaluatie</h1>
-                <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold border border-indigo-200">
+                <span
+                    class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold border border-indigo-200">
                     <i class="fa-regular fa-clock mr-1"></i> ~10 min
                 </span>
             </div>
@@ -50,25 +52,34 @@
                 <i class="fa-solid fa-user text-indigo-600 mr-2.5"></i> Introductie: Het verhaal van Axel
             </h2>
             <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                In dit onderdeel maakt u kennis met <strong>Axel</strong>, een patiënt die gediagnosticeerd is met het <strong>Brugada syndroom</strong>. Dit is een genetische hartaandoening die een verhoogd risico geeft op ernstige hartritmestoornissen en plotselinge hartdood. 
+                In dit onderdeel maakt u kennis met <strong>Axel</strong>, een patiënt die gediagnosticeerd is met het
+                <strong>Brugada syndroom</strong>. Dit is een genetische hartaandoening die een verhoogd risico geeft op
+                ernstige hartritmestoornissen en plotselinge hartdood.
             </p>
             <p class="text-gray-600 text-sm leading-relaxed">
-                Door de impact van deze diagnose en de bijbehorende medische implantaten (zoals een ICD/defibrillator) is Axel's dagelijks leven ingrijpend veranderd. Hij balanceert continu tussen zijn rol als patiënt en zijn bijdrage aan de academische wereld binnen dit medische domein.
+                Door de impact van deze diagnose en de bijbehorende medische implantaten (zoals een ICD/defibrillator)
+                is Axel's dagelijks leven ingrijpend veranderd. Hij balanceert continu tussen zijn rol als patiënt en
+                zijn bijdrage aan de academische wereld binnen dit medische domein.
             </p>
         </div>
 
         <!-- PRIVACY & AUTEURSRECHT BLOCKER -->
-        <div id="consent-blocker" class="bg-amber-50 border border-amber-200 p-8 rounded-2xl text-center my-8 shadow-xs">
+        <div id="consent-blocker"
+            class="bg-amber-50 border border-amber-200 p-8 rounded-2xl text-center my-8 shadow-xs">
             <i class="fa-solid fa-lock text-amber-500 text-4xl mb-4"></i>
             <h3 class="text-xl font-bold text-amber-950 mb-2">Gevoelige Medische Content Grendel</h3>
             <p class="text-amber-800 text-sm max-w-2xl mx-auto mb-6">
-                De media en 360°-omgevingen in deze test bevatten persoonsgegevens en auteursrechtelijk beschermd materiaal. Om deze te mogen inzien en de test te starten, dient u expliciet akkoord te gaan met de voorwaarden.
+                De media en 360°-omgevingen in deze test bevatten persoonsgegevens en auteursrechtelijk beschermd
+                materiaal. Om deze te mogen inzien en de test te starten, dient u expliciet akkoord te gaan met de
+                voorwaarden.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="consent.html" target="_blank" class="text-indigo-600 font-semibold hover:underline text-sm flex items-center">
+                <a href="consent.html" target="_blank"
+                    class="text-indigo-600 font-semibold hover:underline text-sm flex items-center">
                     <i class="fa-solid fa-file-shield mr-1.5"></i> Bekijk Privacyverklaring & Voorwaarden
                 </a>
-                <button id="btn-accept-content" class="bg-amber-600 hover:bg-amber-700 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-xs">
+                <button id="btn-accept-content"
+                    class="bg-amber-600 hover:bg-amber-700 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-xs">
                     Ik ga akkoord en ontgrendel de test
                 </button>
             </div>
@@ -80,14 +91,29 @@
             <!-- TAKENLIJST -->
             <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs">
                 <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                    <i class="fa-solid fa-list-check text-gray-400 mr-2"></i> Uit te voeren opdrachten
+                    <i class="fa-solid fa-list-check text-indigo-600 mr-2.5"></i> Uit te voeren opdrachten
                 </h2>
+
                 <div class="p-4 bg-gray-50 rounded-xl border border-gray-150">
+                    <!-- BELANGRIJKE INSTRUCTIE VOORAF -->
+                    <div
+                        class="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg flex items-start gap-2.5 text-amber-900 text-xs font-semibold">
+                        <i class="fa-solid fa-circle-exclamation text-amber-600 text-sm mt-0.5 shrink-0"></i>
+                        <span>Belangrijk: Lees eerst alle 4 de onderstaande opdrachten volledig door om het overzicht te
+                            krijgen, vóórdat u begint met de uitvoering ervan.</span>
+                    </div>
+
                     <ol class="list-decimal list-inside text-sm text-gray-700 space-y-3">
-                        <li><strong>Verken het verhaal van Axel</strong> aan de hand van de gegeven media. Deze media bestaat uit de <u>algemene media</u> (documenten/video's) EN de <u>360° vlogs</u> waarin hij zijn situatie toelicht.</li>
-                        <li><strong>Verken de 360° foto's (scenes)</strong> in de daarvoor bestemde sectie om een visueel beeld te krijgen van zijn fysieke leefomgeving.</li>
-                        <li><strong>Denk na over het positioneren van de media:</strong> Waar zou u de specifieke documenten, vlogs of korte notities in de 360° ruimtes plaatsen om logische verbanden te leggen tussen de fysieke ruimte en de details van zijn verhaal?</li>
-                        <li><strong>Beargumenteer mentaal</strong> waarom u specifieke media op bepaalde locaties heeft geplaatst ter voorbereiding op de enquête.</li>
+                        <li><strong>Verken het verhaal van Axel</strong> aan de hand van de gegeven media. Deze media
+                            bestaat uit de <u>algemene media</u> (documenten/video's) EN de <u>360° vlogs</u> waarin hij
+                            zijn situatie toelicht.</li>
+                        <li><strong>Verken de 360° foto's (scenes)</strong> in de daarvoor bestemde sectie om een
+                            visueel beeld te krijgen van zijn fysieke leefomgeving.</li>
+                        <li><strong>Denk na over het positioneren van de media:</strong> Waar zou u de specifieke
+                            documenten, vlogs of korte notities in de 360° ruimtes plaatsen om logische verbanden te
+                            leggen tussen de fysieke ruimte en de details van zijn verhaal?</li>
+                        <li><strong>Beargumenteer mentaal</strong> waarom u specifieke media op bepaalde locaties heeft
+                            geplaatst ter voorbereiding op de enquête.</li>
                     </ol>
                 </div>
             </div>
@@ -102,22 +128,34 @@
                     <div class="border border-gray-200 rounded-xl p-4 flex flex-col justify-between bg-white">
                         <div class="mb-3">
                             <div class="flex items-center justify-between">
-                                <span class="bg-blue-50 text-blue-700 text-xs font-bold px-2 py-0.5 rounded border border-blue-200">Lijst van Beperkingen</span>
-                                <button onclick="openModal('image', document.getElementById('media-beperkingen').src)" class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> Groot bekijken</button>
+                                <span
+                                    class="bg-blue-50 text-blue-700 text-xs font-bold px-2 py-0.5 rounded border border-blue-200">Lijst
+                                    van Beperkingen</span>
+                                <button onclick="openModal('image', document.getElementById('media-beperkingen').src)"
+                                    class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold"><i
+                                        class="fa-solid fa-expand mr-1"></i> Groot bekijken</button>
                             </div>
-                            <p class="text-gray-500 text-xs mt-1">Lijst met dagelijkse restricties voor patiënten met het Brugada syndroom.</p>
+                            <p class="text-gray-500 text-xs mt-1">Lijst met dagelijkse restricties voor patiënten met
+                                het Brugada syndroom.</p>
                         </div>
-                        <img id="media-beperkingen" src="" alt="Lijst van beperkingen" class="w-full h-48 object-cover rounded-lg border border-gray-200 cursor-pointer" onclick="openModal('image', this.src)">
+                        <img id="media-beperkingen" src="" alt="Lijst van beperkingen"
+                            class="w-full h-48 object-cover rounded-lg border border-gray-200 cursor-pointer"
+                            onclick="openModal('image', this.src)">
                     </div>
 
                     <!-- Guidelines Paper (PDF) -->
                     <div class="border border-gray-200 rounded-xl p-4 flex flex-col justify-between bg-white">
                         <div class="mb-3">
                             <div class="flex items-center justify-between">
-                                <span class="bg-red-50 text-red-700 text-xs font-bold px-2 py-0.5 rounded border border-red-200">2022 ESC Guidelines (Niet volledig te lezen)</span>
-                                <button onclick="openModal('pdf', document.getElementById('media-paper').src)" class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> Groot bekijken</button>
+                                <span
+                                    class="bg-red-50 text-red-700 text-xs font-bold px-2 py-0.5 rounded border border-red-200">2022
+                                    ESC Guidelines (Niet volledig te lezen)</span>
+                                <button onclick="openModal('pdf', document.getElementById('media-paper').src)"
+                                    class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold"><i
+                                        class="fa-solid fa-expand mr-1"></i> Groot bekijken</button>
                             </div>
-                            <p class="text-gray-500 text-xs mt-1">Richtlijnen voor ventriculaire aritmieën (Axel als co-auteur).</p>
+                            <p class="text-gray-500 text-xs mt-1">Richtlijnen voor ventriculaire aritmieën (Axel als
+                                co-auteur).</p>
                         </div>
                         <iframe id="media-paper" src="" class="w-full h-48 rounded-lg border border-gray-200"></iframe>
                     </div>
@@ -126,10 +164,15 @@
                     <div class="border border-gray-200 rounded-xl p-4 flex flex-col justify-between bg-white">
                         <div class="mb-3">
                             <div class="flex items-center justify-between">
-                                <span class="bg-purple-50 text-purple-700 text-xs font-bold px-2 py-0.5 rounded border border-purple-200">Medisch Infoboekje</span>
-                                <button onclick="openModal('video', document.getElementById('media-infoboekje').src)" class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> Groot bekijken</button>
+                                <span
+                                    class="bg-purple-50 text-purple-700 text-xs font-bold px-2 py-0.5 rounded border border-purple-200">Medisch
+                                    Infoboekje</span>
+                                <button onclick="openModal('video', document.getElementById('media-infoboekje').src)"
+                                    class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold"><i
+                                        class="fa-solid fa-expand mr-1"></i> Groot bekijken</button>
                             </div>
-                            <p class="text-gray-500 text-xs mt-1">Video waarin Axel door het verklarende infoboekje bladert.</p>
+                            <p class="text-gray-500 text-xs mt-1">Video waarin Axel door het verklarende infoboekje
+                                bladert.</p>
                         </div>
                         <video id="media-infoboekje" controls class="w-full h-48 rounded-lg bg-black"></video>
                     </div>
@@ -138,10 +181,15 @@
                     <div class="border border-gray-200 rounded-xl p-4 flex flex-col justify-between bg-white">
                         <div class="mb-3">
                             <div class="flex items-center justify-between">
-                                <span class="bg-purple-50 text-purple-700 text-xs font-bold px-2 py-0.5 rounded border border-purple-200">ECG-Opname & Defibrillator</span>
-                                <button onclick="openModal('video', document.getElementById('media-ecg').src)" class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> Groot bekijken</button>
+                                <span
+                                    class="bg-purple-50 text-purple-700 text-xs font-bold px-2 py-0.5 rounded border border-purple-200">ECG-Opname
+                                    & Defibrillator</span>
+                                <button onclick="openModal('video', document.getElementById('media-ecg').src)"
+                                    class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold"><i
+                                        class="fa-solid fa-expand mr-1"></i> Groot bekijken</button>
                             </div>
-                            <p class="text-gray-500 text-xs mt-1">Axel overloopt een ECG-registratie met fibrillatie en ICD-activering.</p>
+                            <p class="text-gray-500 text-xs mt-1">Axel overloopt een ECG-registratie met fibrillatie en
+                                ICD-activering.</p>
                         </div>
                         <video id="media-ecg" controls class="w-full h-48 rounded-lg bg-black"></video>
                     </div>
@@ -155,46 +203,61 @@
                 </div>
                 <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <span class="bg-amber-50 text-amber-700 text-xs font-bold px-2 py-0.5 rounded border border-amber-200 mb-1 inline-block">Vlog 1: Mobiliteit & Boodschappen</span>
-                        <p class="text-gray-500 text-xs mb-3">Axel legt uit welke impact de aandoening heeft op zijn mobiliteit.</p>
-                        <div id="vlog-viewer-mobiliteit" class="w-full h-64 bg-gray-900 rounded-xl overflow-hidden shadow-inner"></div>
+                        <span
+                            class="bg-amber-50 text-amber-700 text-xs font-bold px-2 py-0.5 rounded border border-amber-200 mb-1 inline-block">Vlog
+                            1: Mobiliteit & Boodschappen</span>
+                        <p class="text-gray-500 text-xs mb-3">Axel legt uit welke impact de aandoening heeft op zijn
+                            mobiliteit.</p>
+                        <div id="vlog-viewer-mobiliteit"
+                            class="w-full h-64 bg-gray-900 rounded-xl overflow-hidden shadow-inner"></div>
                     </div>
                     <div>
-                        <span class="bg-amber-50 text-amber-700 text-xs font-bold px-2 py-0.5 rounded border border-amber-200 mb-1 inline-block">Vlog 2: Woonplaats & Strategische Keuze</span>
-                        <p class="text-gray-500 text-xs mb-3">Axel vertelt waarom zijn specifieke woonlocatie strategisch is gekozen.</p>
-                        <div id="vlog-viewer-woonplaats" class="w-full h-64 bg-gray-900 rounded-xl overflow-hidden shadow-inner"></div>
+                        <span
+                            class="bg-amber-50 text-amber-700 text-xs font-bold px-2 py-0.5 rounded border border-amber-200 mb-1 inline-block">Vlog
+                            2: Woonplaats & Strategische Keuze</span>
+                        <p class="text-gray-500 text-xs mb-3">Axel vertelt waarom zijn specifieke woonlocatie
+                            strategisch is gekozen.</p>
+                        <div id="vlog-viewer-woonplaats"
+                            class="w-full h-64 bg-gray-900 rounded-xl overflow-hidden shadow-inner"></div>
                     </div>
                 </div>
             </div>
 
             <!-- SECTIE 3: 360° OMGEVINGEN (SCENES) -->
             <div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
-                <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <div
+                    class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                     <h3 class="text-lg font-bold text-gray-900">3. Fysieke Ruimtes (360° Scenes)</h3>
                     <div class="flex flex-wrap gap-1.5" id="scene-selector-container">
                         <!-- Dynamische knoppen -->
                     </div>
                 </div>
                 <div class="p-6">
-                    <div id="scene-viewer-container" class="w-full h-96 bg-gray-900 rounded-xl overflow-hidden shadow-inner relative flex items-center justify-center">
-                        <span class="text-gray-400 text-sm font-medium">Selecteer een scene hierboven om deze te verkennen</span>
+                    <div id="scene-viewer-container"
+                        class="w-full h-96 bg-gray-900 rounded-xl overflow-hidden shadow-inner relative flex items-center justify-center">
+                        <span class="text-gray-400 text-sm font-medium">Selecteer een scene hierboven om deze te
+                            verkennen</span>
                     </div>
                 </div>
             </div>
 
             <!-- ENQUÊTE CALL TO ACTION -->
-            <div class="bg-indigo-900 text-white p-8 rounded-2xl shadow-md border border-indigo-950 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div
+                class="bg-indigo-900 text-white p-8 rounded-2xl shadow-md border border-indigo-950 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="max-w-xl">
                     <h2 class="text-2xl font-bold mb-2 flex items-center">
                         <i class="fa-solid fa-square-check text-green-400 mr-3 text-3xl"></i>
                         Klaar met de kwalitatieve evaluatie?
                     </h2>
                     <p class="text-indigo-200 text-sm leading-relaxed">
-                        U heeft nu alle 4 de opdrachten voltooid? Klik op de knop om uw conceptuele ideeën en argumenten achter te laten in het officiële feedbackformulier.
+                        U heeft nu alle 4 de opdrachten voltooid? Klik op de knop om uw conceptuele ideeën en argumenten
+                        achter te laten in het officiële feedbackformulier.
                     </p>
                 </div>
-                <a id="form-link" href="#" target="_blank" class="w-full md:w-auto bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3.5 rounded-xl inline-flex items-center justify-center transition-colors shadow-xs shrink-0 group">
-                    Naar het evaluatieformulier <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                <a id="form-link" href="#" target="_blank"
+                    class="w-full md:w-auto bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3.5 rounded-xl inline-flex items-center justify-center transition-colors shadow-xs shrink-0 group">
+                    Naar het evaluatieformulier <i
+                        class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                 </a>
             </div>
 
@@ -203,15 +266,20 @@
 
     <!-- FOOTER -->
     <footer class="bg-white border-t border-gray-200 mt-12 py-6">
-        <div class="max-w-5xl mx-auto px-4 text-center text-sm text-gray-500 flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
+        <div
+            class="max-w-5xl mx-auto px-4 text-center text-sm text-gray-500 flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
             <p>&copy; 2026 Masterthesis Onderzoek Ebbe Wertz - 360° Digitale Verhaallijnen.</p>
-            <a href="consent.html" target="_blank" class="text-gray-400 hover:text-indigo-600 font-medium transition-colors">Privacyverklaring & Voorwaarden</a>
+            <a href="consent.html" target="_blank"
+                class="text-gray-400 hover:text-indigo-600 font-medium transition-colors">Privacyverklaring &
+                Voorwaarden</a>
         </div>
     </footer>
 
     <!-- LIGHTBOX / MEDIA MODAL SYSTEM -->
-    <div id="media-modal" class="fixed inset-0 z-50 hidden bg-black/80 flex items-center justify-center p-4 backdrop-blur-xs">
-        <button onclick="closeModal()" class="absolute top-4 right-4 text-white hover:text-gray-300 text-3xl z-50 cursor-pointer">
+    <div id="media-modal"
+        class="fixed inset-0 z-50 hidden bg-black/80 flex items-center justify-center p-4 backdrop-blur-xs">
+        <button onclick="closeModal()"
+            class="absolute top-4 right-4 text-white hover:text-gray-300 text-3xl z-50 cursor-pointer">
             <i class="fa-solid fa-xmark"></i>
         </button>
         <div id="modal-content" class="w-full max-w-4xl h-[85vh] flex items-center justify-center">
@@ -222,11 +290,11 @@
     <!-- SCRIPTS EN LOGICA -->
     <script>
         // Globale functies voor het modal venster (zodat inline HTML buttons erbij kunnen)
-        window.openModal = function(type, src) {
+        window.openModal = function (type, src) {
             const modal = document.getElementById('media-modal');
             const container = document.getElementById('modal-content');
             container.innerHTML = '';
-            
+
             if (type === 'image') {
                 container.innerHTML = `<img src="${src}" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">`;
             } else if (type === 'pdf') {
@@ -237,7 +305,7 @@
             modal.classList.remove('hidden');
         };
 
-        window.closeModal = function() {
+        window.closeModal = function () {
             const modal = document.getElementById('media-modal');
             const container = document.getElementById('modal-content');
             container.innerHTML = ''; // Stopt spelende video's
@@ -246,9 +314,9 @@
     </script>
 
     <script type="module">
-        import { 
-            getID, 
-            getForm1Url, 
+        import {
+            getID,
+            getForm1Url,
             getCorrectPresignedUrl,
             presigned_env_urls,
             presigned_media_urls,
@@ -339,7 +407,7 @@
         // 360° Foto via de CubemapAdapter met specifieke 'stripe' array volgorde
         function load360Photo(photoUrl) {
             const container = document.getElementById('scene-viewer-container');
-            
+
             if (currentPhotoViewer) {
                 currentPhotoViewer.destroy();
             }

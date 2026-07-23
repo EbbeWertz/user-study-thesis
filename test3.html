@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 3: Conceptuele Evaluatie (Verhaal Modellering) - Masterthesis</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <script type="module" src="./scripts.js"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <!-- HOOFDCONTAINER -->
+    <main class="flex-grow max-w-5xl w-full mx-auto px-4 py-8">
+        
+        <!-- Terugknop & Titel -->
+        <div class="mb-6">
+            <a href="index.html" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:underline mb-4">
+                <i class="fa-solid fa-arrow-left mr-1.5 text-xs"></i> Terug naar de centrale hub
+            </a>
+            <div class="flex items-center justify-between border-b border-gray-200 pb-4">
+                <h1 class="text-3xl font-extrabold text-gray-900">Test 3: Expliciete Verhaal Modellering</h1>
+                <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold border border-indigo-200">
+                    <i class="fa-regular fa-clock mr-1"></i> ~10 min
+                </span>
+            </div>
+        </div>
+
+        <!-- INTRODUCTIE & CONCEPTUEEL KADER -->
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs mb-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                <i class="fa-solid fa-diagram-project text-indigo-600 mr-2.5"></i> Concept: Wat is Verhaal Modellering?
+            </h2>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                Een patiëntenverhaal dat via media (zoals in Test 1 en Test 2) wordt gepresenteerd, wordt in de eerste plaats gedefinieerd door de maker of verzamelaar van deze media. Een 360°-omgeving is in essentie slechts een visueel medium om deze content in voort te brengen. 
+            </p>
+            <p class="text-gray-600 text-sm leading-relaxed">
+                In deze test wordt onderzoecht of het waardevol en behulpzaam is als de webapplicatie beschikt over <strong>expliciete verhaal modellering</strong>. Omdat dit een puur conceptuele uitbreiding is waarbij de immersie van de 360° speler minder cruciaal is, maken we in deze test gebruik van <strong>wireframe mock-ups</strong> van de voorgestelde applicatie-uitbreidingen.
+            </p>
+        </div>
+
+        <!-- PRIVACY & AUTEURSRECHT BLOCKER -->
+        <div id="consent-blocker" class="bg-amber-50 border border-amber-200 p-8 rounded-2xl text-center my-8 shadow-xs">
+            <i class="fa-solid fa-lock text-amber-500 text-4xl mb-4"></i>
+            <h3 class="text-xl font-bold text-amber-950 mb-2">Grendel voor Conceptuele Ontwerpen</h3>
+            <p class="text-amber-800 text-sm max-w-2xl mx-auto mb-6">
+                De getoonde interfaces en mock-ups zijn onderdeel van vertrouwelijk masterthesisonderzoek. Ga akkoord met de voorwaarden om de mock-ups te ontgrendelen en de evaluatie te starten.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="consent.html" target="_blank" class="text-indigo-600 font-semibold hover:underline text-sm flex items-center">
+                    <i class="fa-solid fa-file-shield mr-1.5"></i> Bekijk Privacyverklaring & Voorwaarden
+                </a>
+                <button id="btn-accept-content" class="bg-amber-600 hover:bg-amber-700 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-xs">
+                    Ik ga akkoord en ontgrendel de test
+                </button>
+            </div>
+        </div>
+
+        <!-- CONTENT AREA (INITIEEL VERBORGEN TOT ACCEPTEREN) -->
+        <div id="test-content" class="hidden space-y-8">
+
+            <!-- TAALEIS / OPDRACHT -->
+            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs">
+                <h2 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                    <i class="fa-solid fa-tasks text-gray-400 mr-2"></i> Uw Opdracht
+                </h2>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Bekijk de onderstaande drie functionele uitbreidingen zorgvuldig. Probeer te begrijpen hoe deze nieuwe concepten (Patiënten, Aandoeningen en Situaties) met elkaar en met de media verbonden zijn. Klik op de knoppen of wireframes om ze <strong>in het groot te bestuderen</strong>. Na het doornemen volgt de enquête.
+                </p>
+            </div>
+
+            <!-- ONDERDEEL 1: DE NIEUWE PAGINA "PATIENT MODELS" -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
+                <div class="bg-gray-50 border-b border-gray-200 px-6 py-4">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider block mb-1">Uitbreiding 1</span>
+                    <h3 class="text-lg font-bold text-gray-900">De Introductie van een 5de Hoofdpagina: "Patient Models"</h3>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Herinner u de applicatiestructuur uit Test 2, bestaande uit 4 hoofdpagina's in de zijbalk (<em>Team Dashboard, Media Storage, Environments, Publications</em>). We introduceren nu een <strong>5de pagina: "Patient Models"</strong>. Binnen deze centrale pagina beheert de gebruiker drie expliciete entiteiten via drie losse tabs:
+                    </p>
+                    
+                    <!-- Tab Selector Knoppen -->
+                    <div class="flex border-b border-gray-200 mb-4 gap-2">
+                        <button id="tab-btn-patient" class="px-4 py-2 text-sm font-semibold border-b-2 border-indigo-600 text-indigo-600 cursor-pointer">Tab 1: Patients (Patiënten)</button>
+                        <button id="tab-btn-subject" class="px-4 py-2 text-sm font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700 cursor-pointer">Tab 2: Illnesses / Subjects (Aandoeningen)</button>
+                        <button id="tab-btn-situation" class="px-4 py-2 text-sm font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700 cursor-pointer">Tab 3: Situations (Context/Situaties)</button>
+                    </div>
+
+                    <!-- Tab Content & Wireframe Previews -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+                        <div class="md:col-span-1 space-y-4 text-sm text-gray-600">
+                            <div id="tab-desc-patient" class="block">
+                                <h4 class="font-bold text-gray-900 mb-1">Tab 1: Patients</h4>
+                                Hier beheert u de basisgegevens en medische profielen van de specifieke patiënten (zoals Axel) die centraal staan in de verhaallijn.
+                            </div>
+                            <div id="tab-desc-subject" class="hidden">
+                                <h4 class="font-bold text-gray-900 mb-1">Tab 2: Illnesses / Subjects</h4>
+                                Hier modeleert u de specifieke aandoeningen of klinische onderwerpen in detail (bijv. het Brugada syndroom).
+                            </div>
+                            <div id="tab-desc-situation" class="hidden">
+                                <h4 class="font-bold text-gray-900 mb-1">Tab 3: Situations</h4>
+                                Hier legt u verschillende contexten vast zoals: de fysieke thuissituatie, een specifieke klinische setting, een vervoer situatie of de werksituatie.
+                            </div>
+                            <button id="btn-expand-models" class="w-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold py-2 px-3 rounded-xl border border-indigo-200 transition-colors">
+                                <i class="fa-solid fa-expand mr-1.5"></i> Open actieve tab in het groot
+                            </button>
+                        </div>
+                        <div class="md:col-span-2 border border-gray-200 rounded-xl p-2 bg-gray-50 flex justify-center items-center">
+                            <!-- Dynamische afbeelding wissel op basis van actieve tab -->
+                            <img id="img-models-preview" src="./assets/PrototypeModelsPatient.png" alt="Patient Models Wireframe" class="max-h-72 object-contain rounded-lg shadow-xs cursor-pointer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ONDERDEEL 2: INTEGRATIE IN DE MEDIA STORAGE -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
+                <div class="bg-gray-50 border-b border-gray-200 px-6 py-4">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider block mb-1">Uitbreiding 2</span>
+                    <h3 class="text-lg font-bold text-gray-900">Gekoppelde Media Storage & Tagging</h3>
+                </div>
+                <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                    <div class="md:col-span-1 space-y-3 text-sm text-gray-600">
+                        <p>
+                            Dit is een wireframe mock-up die de originele <strong>Media Storage browser</strong> uit test 2 imiteert. De nieuwe of aangepaste elementen zijn in het <span class="text-red-600 font-semibold">rood</span> gemarkeerd om de wijzigingen direct te accentueren.
+                        </p>
+                        <ul class="list-disc list-inside space-y-1.5 text-xs bg-gray-50 p-3 rounded-xl border border-gray-150">
+                            <li>Media-items kunnen nu expliciet gekoppeld worden aan de gemodelleerde entiteiten.</li>
+                            <li>Via het rechterpaneel kunt u patiënt-, aandoening-, of situatietags toevoegen of verwijderen.</li>
+                            <li>Er is een filterbalk toegevoegd om direct alle media te tonen die aan bijvoorbeeld één specifieke patiënt of situatie gekoppeld zijn.</li>
+                        </ul>
+                        <button onclick="openModal('image', './assets/PrototypeStorage.png')" class="w-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold py-2 px-3 rounded-xl border border-indigo-200 transition-colors">
+                            <i class="fa-solid fa-expand mr-1.5"></i> Storage mock-up in het groot bekijken
+                        </button>
+                    </div>
+                    <div class="md:col-span-2 border border-gray-200 rounded-xl p-2 bg-gray-50 flex justify-center items-center">
+                        <img src="./assets/PrototypeStorage.png" alt="Prototype Media Storage" class="max-h-72 object-contain rounded-lg shadow-xs cursor-pointer" onclick="openModal('image', this.src)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ONDERDEEL 3: COGNITIEVE KOPPELING IN DE ENVIRONMENT OVERVIEW -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
+                <div class="bg-gray-50 border-b border-gray-200 px-6 py-4">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider block mb-1">Uitbreiding 3</span>
+                    <h3 class="text-lg font-bold text-gray-900">Environment Links & Scene Validatie</h3>
+                </div>
+                <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                    <div class="md:col-span-1 space-y-3 text-sm text-gray-600">
+                        <p>
+                            Dit toont het <strong>Overview tabblad</strong> van een specifieke 360° Environment (zoals Axel's verhaal). Wederom zijn de nieuwe interface-elementen in het <span class="text-red-600 font-semibold">rood</span> aangeduid:
+                        </p>
+                        <ul class="list-disc list-inside space-y-1.5 text-xs bg-gray-50 p-3 rounded-xl border border-gray-150">
+                            <li>De Environment als geheel bezit nu directe links naar specifieke patiënten, aandoeningen en situaties.</li>
+                            <li>Het rechterpaneel toont een checklist status die verifieert of er aan elk van de 3 entiteit-types een koppeling is gemaakt.</li>
+                            <li>Het systeem valideert direct of elke individuele 360° scene (als media-item) correct getagd is met een bijbehorende situatie.</li>
+                        </ul>
+                        <button onclick="openModal('image', './assets/PrototypeEnv.png')" class="w-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold py-2 px-3 rounded-xl border border-indigo-200 transition-colors">
+                            <i class="fa-solid fa-expand mr-1.5"></i> Environment mock-up in het groot bekijken
+                        </button>
+                    </div>
+                    <div class="md:col-span-2 border border-gray-200 rounded-xl p-2 bg-gray-50 flex justify-center items-center">
+                        <img src="./assets/PrototypeEnv.png" alt="Prototype Environment Overview" class="max-h-72 object-contain rounded-lg shadow-xs cursor-pointer" onclick="openModal('image', this.src)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENQUÊTE CALL TO ACTION -->
+            <div class="bg-indigo-900 text-white p-8 rounded-2xl shadow-md border border-indigo-950 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-2xl font-bold mb-2 flex items-center">
+                        <i class="fa-solid fa-square-check text-green-400 mr-3 text-3xl"></i>
+                        Klaar met de conceptuele evaluatie?
+                    </h2>
+                    <p class="text-indigo-200 text-sm leading-relaxed">
+                        U heeft nu alle wireframes en concepten bestudeerd. Klik op de onderstaande knop om uw feedback te geven over de toegevoegde waarde van expliciete verhaal modellering in het formulier voor Test 3.
+                    </p>
+                </div>
+                <a id="form-link" href="#" target="_blank" class="w-full md:w-auto bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3.5 rounded-xl inline-flex items-center justify-center transition-colors shadow-xs shrink-0 group">
+                    Naar enquête 3 <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 mt-12 py-6">
+        <div class="max-w-5xl mx-auto px-4 text-center text-sm text-gray-500 flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
+            <p>&copy; 2026 Masterthesis Onderzoek Ebbe Wertz - 360° Digitale Verhaallijnen.</p>
+            <a href="consent.html" target="_blank" class="text-gray-400 hover:text-indigo-600 font-medium transition-colors">Privacyverklaring & Voorwaarden</a>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX / MEDIA MODAL SYSTEM -->
+    <div id="media-modal" class="fixed inset-0 z-50 hidden bg-black/80 flex items-center justify-center p-4 backdrop-blur-xs">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-white hover:text-gray-300 text-3xl z-50 cursor-pointer">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div id="modal-content" class="w-full max-w-5xl h-[85vh] flex items-center justify-center">
+            <!-- Dynamische image injectie -->
+        </div>
+    </div>
+
+    <!-- LOGICA EN INTERACTIE -->
+    <script>
+        // Globale modal logica
+        window.openModal = function(type, src) {
+            const modal = document.getElementById('media-modal');
+            const container = document.getElementById('modal-content');
+            container.innerHTML = `<img src="${src}" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">`;
+            modal.classList.remove('hidden');
+        };
+
+        window.closeModal = function() {
+            document.getElementById('media-modal').classList.add('hidden');
+        };
+    </script>
+
+    <script type="module">
+        import { getID, getForm3Url } from './scripts.js';
+
+        const STORAGE_CONSENT_KEY = 'study_test3_content_consent';
+        
+        // Tab-configuraties mapping
+        const tabs = {
+            patient: {
+                btnId: 'tab-btn-patient',
+                descId: 'tab-desc-patient',
+                img: './assets/PrototypeModelsPatient.png'
+            },
+            subject: {
+                btnId: 'tab-btn-subject',
+                descId: 'tab-desc-subject',
+                img: './assets/PrototypeModelsSubject.png'
+            },
+            situation: {
+                btnId: 'tab-btn-situation',
+                descId: 'tab-desc-situation',
+                img: './assets/PrototypeModelsSituation.png'
+            }
+        };
+        
+        let activeTabKey = 'patient';
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const blocker = document.getElementById('consent-blocker');
+            const contentArea = document.getElementById('test-content');
+            const acceptBtn = document.getElementById('btn-accept-content');
+
+            if (localStorage.getItem(STORAGE_CONSENT_KEY) === 'true') {
+                blocker.classList.add('hidden');
+                contentArea.classList.remove('hidden');
+                initializeTest();
+            } else {
+                acceptBtn.addEventListener('click', () => {
+                    localStorage.setItem(STORAGE_CONSENT_KEY, 'true');
+                    blocker.classList.add('hidden');
+                    contentArea.classList.remove('hidden');
+                    initializeTest();
+                });
+            }
+        });
+
+        function initializeTest() {
+            const participantId = getID();
+
+            // Koppel formulier link
+            const formLink = document.getElementById("form-link");
+            if (formLink && participantId && typeof getForm3Url === 'function') {
+                formLink.href = getForm3Url(participantId);
+            }
+
+            // Initialiseer tab selectors
+            Object.keys(tabs).forEach(key => {
+                const btn = document.getElementById(tabs[key].btnId);
+                btn.addEventListener('click', () => switchTab(key));
+            });
+
+            // Grote weergave knop voor de actieve tab wireframe
+            document.getElementById('btn-expand-models').addEventListener('click', () => {
+                openModal('image', tabs[activeTabKey].img);
+            });
+
+            // Klikken op de actieve tab preview opent hem ook in het groot
+            document.getElementById('img-models-preview').addEventListener('click', (e) => {
+                openModal('image', e.target.src);
+            });
+        }
+
+        function switchTab(tabKey) {
+            activeTabKey = tabKey;
+            const previewImg = document.getElementById('img-models-preview');
+
+            // Reset alle tabs naar inactief
+            Object.keys(tabs).forEach(key => {
+                const btn = document.getElementById(tabs[key].btnId);
+                const desc = document.getElementById(tabs[key].descId);
+                
+                btn.classList.replace('border-indigo-600', 'border-transparent');
+                btn.classList.replace('text-indigo-600', 'text-gray-500');
+                btn.classList.add('hover:text-gray-700');
+                desc.classList.replace('block', 'hidden');
+            });
+
+            // Activeer geselecteerde tab
+            const activeBtn = document.getElementById(tabs[tabKey].btnId);
+            const activeDesc = document.getElementById(tabs[tabKey].descId);
+            
+            activeBtn.classList.replace('border-transparent', 'border-indigo-600');
+            activeBtn.classList.replace('text-gray-500', 'text-indigo-600');
+            activeBtn.classList.remove('hover:text-gray-700');
+            activeDesc.classList.replace('hidden', 'block');
+            
+            // Wissel de wireframe image
+            previewImg.src = tabs[tabKey].img;
+        }
+    </script>
+</body>
+
+</html>
